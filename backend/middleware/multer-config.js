@@ -3,7 +3,8 @@ const multer = require('multer');
 const MIME_TYPES = {
   'image/jpg': 'jpg',
   'image/jpeg': 'jpg',
-  'image/png': 'png'
+  'image/png': 'png',
+  'image/webp': 'webp'
 };
 
 // Middleware pour gérer l'upload d'images
@@ -15,7 +16,7 @@ const storage = multer.diskStorage({
     // Validation du type de fichier
     const extension = MIME_TYPES[file.mimetype];
     if (!extension) {
-      return callback(new Error('Seuls les fichiers de type image (JPG, JPEG, PNG) sont acceptés.'));
+      return callback(new Error('Seuls les fichiers de type image (JPG, JPEG, PNG, WEBP) sont acceptés.'));
     }
 
     // Génération d'un nom de fichier unique

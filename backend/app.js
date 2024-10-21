@@ -3,12 +3,13 @@ const mongoose = require('mongoose');
 const userRoutes = require("./routes/users");
 const bookRoutes = require('./routes/books');
 const path = require('path');
+require('dotenv').config();
 
 
 const app = express();
 
 // Connexion à MongoDB
-  mongoose.connect('mongodb+srv://qacharhosna:Hosna98@cluster0.lc2zu.mongodb.net/')
+mongoose.connect(process.env.MONGODB_URI)
     .then(() => console.log('Connexion à MongoDB réussie !'))
     .catch((error) => console.log('Connexion à MongoDB échouée !', error));
 
