@@ -1,0 +1,2 @@
+SECRET_TOKEN='your_secret_token_here'
+MONGODB_URI='mongodb+srv://your_mongodb_uri'
