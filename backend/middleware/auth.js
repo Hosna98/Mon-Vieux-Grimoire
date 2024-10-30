@@ -1,5 +1,5 @@
 require("dotenv").config();
-
+// Importation du module jsonwebtoken pour la gestion des tokens JWT
 const jwt = require("jsonwebtoken");
 
 

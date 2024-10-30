@@ -10,8 +10,11 @@ module.exports = async (req, res, next) => {
 
         const originalImagePath = req.file.path; // Chemin de l'image originale
         const ext = path.extname(originalImagePath).toLowerCase(); 
-        const isWebP = ext === '.webp'; // Vérifie si l'image est déjà en WebP
-        let optimizedImageName, optimizedImagePath;
+        // Si l'image est déjà en WebP, on ne fait pas d'optimisation
+        if (ext === '.webp') {
+            return next();
+        }
+        
 
         // Même si l'image est déjà en WebP, nous devons vérifier la taille et la redimensionner si nécessaire
         optimizedImageName = `optimized_${path.basename(originalImagePath, ext)}.webp`; 

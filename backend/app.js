@@ -7,6 +7,8 @@ require('dotenv').config();
 
 
 const app = express();
+// Middleware used to analyze the body of incoming requests in JSON format
+app.use(express.json());
 
 // Connexion à MongoDB
 mongoose.connect(process.env.MONGODB_URI)
@@ -30,8 +32,7 @@ app.use((req, res, next) => {
   });
 
 
-  // Middleware used to analyze the body of incoming requests in JSON format
-  app.use(express.json());
+  
 // Définir les routes d'authentification
   app.use("/api/auth", userRoutes);
   app.use('/api/books', bookRoutes);
